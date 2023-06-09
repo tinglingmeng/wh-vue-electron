@@ -7,6 +7,6 @@ export default {
     return (await axios.get('http://example.com/')).data
   },
   demoPostV2 () {
-    return axios.post('http://example.com/').then(response => response.data)
+    return axios.post('https://sit.weihong777.cn/api/v01/storeapp/account/loginByLoginName', { logonName: '13201100001', password: 'abc123456', mac: '' }).then(response => response.data)
   }
 }

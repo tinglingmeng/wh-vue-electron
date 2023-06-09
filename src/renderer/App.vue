@@ -2,7 +2,7 @@
   <div id="app">
     <div id="app-bar">
       <div id="app-title">
-        vue-cli-electron-template
+        上海威弘信息科技有限公司
       </div>
       <div id="app-action">
         <div
@@ -28,27 +28,17 @@
 
     <div id="content">
       <div id="routers">
-        <router-link to="/">
-          Home
-        </router-link> |
-        <router-link to="/about">
-          About
-        </router-link>
+        <router-link to="/about" />
       </div>
       <router-view />
-      <locale-changer style="position: fixed; right: 30px; top: 50px;" />
     </div>
   </div>
 </template>
 
 <script>
 import { remote } from 'electron'
-import localeChanger from 'components/localeChanger'
 
 export default {
-  components: {
-    localeChanger
-  },
   data () {
     return {
       win: remote.getCurrentWindow(),
@@ -57,6 +47,7 @@ export default {
   },
   methods: {
     autoMaximize () {
+      console.log('aa')
       if (this.originSize) this.win.maximize()
       else this.win.restore()
       this.originSize = !this.originSize
@@ -149,7 +140,7 @@ img { -webkit-user-drag: none; }
 }
 
 #routers {
-  padding: 80px;
+  padding: 10px;
   text-align: center;
 
   a {

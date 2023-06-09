@@ -1,12 +1,12 @@
 <!--
  * @Author: mlt
  * @Date: 2023-06-09 11:20:12
- * @Description: 关于页
+ * @Description: 登录页
 -->
 <template>
   <div style="text-align: center; ">
     <div style="font-size: 72px; font-weight: bolder;">
-      <span>hi</span>
+      <span>登录页</span>
     </div>
     <div
       class="home-button app-action-button"
@@ -37,7 +37,7 @@ export default {
   data () {
     return {
       link: 'https://github.com/Pure-Peace',
-      buttonText: 'requestDemo.ready'
+      buttonText: '请求中'
     }
   },
   methods: {
@@ -45,9 +45,9 @@ export default {
     async sendRequest () {
       console.log(this.$backend)
       this.buttonText = 'requestDemo.requesting'
-      const res = await this.$backend.apiV2.demoGetV2()
+      const res = await this.$backend.apiV2.demoPostV2()
       this.buttonText = 'requestDemo.requestSuccess'
-      console.log(res)
+      console.log('res', res)
     }
   }
 }
