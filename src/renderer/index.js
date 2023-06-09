@@ -5,6 +5,8 @@ import Vue from 'vue'
 import App from 'renderer/App.vue'
 import router from 'renderer/router'
 import store from 'renderer/store'
+import ElementUI from 'element-ui'
+import 'element-ui/lib/theme-chalk/index.css'
 
 // Components ------
 import SvgIcon from 'components/svgIcon/index.vue'
@@ -29,12 +31,13 @@ Vue.config.productionTip = false
 
 // Use plugins
 Vue.use(Bus, { router })
-
+Vue.use(ElementUI)
 // Use components ------
 Vue.component('SvgIcon', SvgIcon)
 
 // Vue options
 const options = {
+  el: '#app',
   router,
   store,
   i18n,

@@ -26,10 +26,7 @@
       </div>
     </div>
 
-    <div id="content">
-      <div id="routers">
-        <router-link to="/about" />
-      </div>
+    <div>
       <router-view />
     </div>
   </div>
@@ -72,7 +69,7 @@ img { -webkit-user-drag: none; }
 #app {
   height: 100vh;
   width: 100vw;
-  background-color: #2D3A41;
+  background-color: #F0EFF5;
   color: #B2CCD6;
   // ok
   font-family: 'Microsoft YaHei', 'Avenir', 'Helvetica', 'Arial', 'sans-serif';
@@ -86,8 +83,8 @@ img { -webkit-user-drag: none; }
 }
 
 #app-bar {
-  background-color: #263238;
-  color: #B2CCD6;
+  background-color: #5972F9;
+  color: #ffffff;
   display: flex;
   // 如果你想让某区域可以拖动，将其设为drag
   // 但是设为drag的区域无法被点击，请注意
