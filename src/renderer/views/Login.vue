@@ -60,6 +60,10 @@ export default {
       console.log(this.$backend)
       const res = await this.$backend.apiV2.demoPostV2()
       console.log('res', res)
+      this.$router.push('/main')// 路由跳转
+      const remote = require('electron').remote
+      const BrowserWindow = remote.BrowserWindow // 改变窗口大小
+      BrowserWindow.mainWindow.center()// 窗口打开居中显示
     }
   }
 }

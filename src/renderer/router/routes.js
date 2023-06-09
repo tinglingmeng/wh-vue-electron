@@ -1,6 +1,7 @@
 import Home from 'views/Home.vue'
 import About from 'views/About.vue'
 import Login from 'views/Login.vue'
+import Main from 'views/Main.vue'
 
 export default [
   {
@@ -10,6 +11,11 @@ export default [
     meta: {
       keepAlive: true // keepAlive will allow the page to load only once
     }
+  },
+  {
+    path: '/Main',
+    name: 'Main',
+    component: Main
   },
   {
     path: '/Home',
