@@ -4,66 +4,113 @@
  * @Description: 主页
 -->
 <template>
-  <div class="div-body">
-    <div class="div-pic">
-      <img
-        class="img-pic"
-        src="~assets/login_logo.png"
+  <div class="div-main">
+    <div class="div-left">
+      <div class="div-item">
+        <div>
+          <el-badge :value="11">
+            <i class="el-icon-message-solid item-i" />
+          </el-badge>
+        </div>
+        <span class="item-txt">消息</span>
+      </div>
+      <div class="div-item">
+        <div>
+          <el-badge :value="2">
+            <i class="el-icon-s-order item-i" />
+          </el-badge>
+        </div>
+        <span class="item-txt">待办事项</span>
+      </div>
+      <div class="div-item">
+        <div>
+          <el-badge is-dot>
+            <i class="el-icon-s-cooperation item-i" />
+          </el-badge>
+        </div>
+        <span class="item-txt">业务公示</span>
+      </div>
+      <div
+        class="div-item"
+        @click="openReport()"
       >
+        <div>
+          <el-badge>
+            <i class="el-icon-s-data item-i" />
+          </el-badge>
+        </div>
+        <span class="item-txt">报表</span>
+      </div>
+      <div class="div-item">
+        <div>
+          <el-badge>
+            <i class="el-icon-menu item-i" />
+          </el-badge>
+        </div>
+        <span class="item-txt">管理</span>
+      </div>
+      <div class="div-item">
+        <div>
+          <el-badge :value="6">
+            <i class="el-icon-chat-dot-square item-i" />
+          </el-badge>
+        </div>
+        <span class="item-txt">通讯录</span>
+      </div>
     </div>
-    <h2 class="sp-txt">
-      主页
-    </h2>
+    <div class="div-right">
+      <span>内容</span>
+    </div>
   </div>
 </template>
 
 <script>
 export default {
   data () {
-    return {
-    }
+    return {}
   },
   methods: {
-    // Async request
+    // 打开报表
+    openReport () {
+      this.$router.push('/main')// 路由跳转
+      const remote = require('electron').remote
+      const BrowserWindow = remote.BrowserWindow // 改变窗口大小
+      BrowserWindow.loadURL('https://sit.weihong777.cn/storeapptest1/#/report/CheckByTime')
+    }
   }
 }
 </script>
 
 <style lang="less">
-.div-body {
+.div-main {
   width: 100%;
   height: 100%;
-  text-align: center;
-  margin-top: 100px;
-  .div-pic {
-    width: 100%;
-    text-align: center;
-    .img-pic {
+  display: flex;
+  flex-direction: row;
+  .div-left {
+    padding: 20px 0 20px 0;
+    width: 15%;
+    height: 100%;
+    background: #eeeef2;
+    .div-item {
+      margin-top: 20px;
+      display: flex;
+      flex-direction: column;
       text-align: center;
-      width: 100px;
-      height: 100px;
+      .item-i{
+        width: 20px;
+        height: 20px;
+      }
+      .item-txt {
+        color: #333333;
+        margin-top: 6px;
+      }
     }
   }
-  .sp-txt {
-    margin-top: 10px;
-    text-align: center;
-    width: 100%;
-    color: #333333;
-    font-size: 24px;
-  }
-  .div-input{
-    margin-top: 10px;
-    width: 100%;
-    .inp{
-      width: 200px;
-    }
-  }
-  .div-btn{
-    margin-top: 30px;
-    width: 100%;
-    .btn{
-      width: 200px;
-    }
+  .div-right {
+    background: white;
+    width: 75%;
+    height: 100%;
   }
 }
 </style>
