@@ -59,7 +59,29 @@
       </div>
     </div>
     <div class="div-right">
-      <span>内容</span>
+      <el-table
+        :data="tableData"
+        style="width: 100%"
+        :default-sort="{prop: 'date', order: 'descending'}"
+      >
+        <el-table-column
+          prop="date"
+          label="日期"
+          sortable
+          width="180"
+        />
+        <el-table-column
+          prop="name"
+          label="姓名"
+          sortable
+          width="180"
+        />
+        <el-table-column
+          prop="address"
+          label="地址"
+          :formatter="formatter"
+        />
+      </el-table>
     </div>
   </div>
 </template>
@@ -67,9 +89,30 @@
 <script>
 export default {
   data () {
-    return {}
+    return {
+      tableData: [{
+        date: '2016-05-02',
+        name: '张三',
+        address: '上海市普陀区'
+      }, {
+        date: '2016-05-04',
+        name: '李四',
+        address: '上海市青浦区'
+      }, {
+        date: '2016-05-01',
+        name: '王五',
+        address: '上海市浦东新区'
+      }, {
+        date: '2016-05-03',
+        name: '赵六',
+        address: '上海市闵行区'
+      }]
+    }
   },
   methods: {
+    formatter (row, column) {
+      return row.address
+    },
     // 打开报表
     openReport () {
       this.$router.push('/main')// 路由跳转
